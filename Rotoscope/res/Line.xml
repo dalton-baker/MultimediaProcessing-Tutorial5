@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<movie>
+  <frame num="1">
+    <line point1="282,201" point2="365,281" />
+  </frame>
+  <frame num="2">
+    <line point1="277,207" point2="363,289" />
+  </frame>
+  <frame num="3">
+    <line point1="272,217" point2="357,294" />
+  </frame>
+  <frame num="4">
+    <line point1="269,222" point2="351,302" />
+  </frame>
+  <frame num="5">
+    <line point1="264,230" point2="345,309" />
+  </frame>
+  <frame num="6">
+    <line point1="260,233" point2="342,316" />
+  </frame>
+  <frame num="7">
+    <line point1="259,239" point2="338,315" />
+  </frame>
+  <frame num="8">
+    <line point1="257,243" point2="337,318" />
+  </frame>
+  <frame num="9">
+    <line point1="256,248" point2="334,314" />
+  </frame>
+  <frame num="10">
+    <line point1="257,253" point2="333,314" />
+  </frame>
+  <frame num="11">
+    <line point1="257,255" point2="335,311" />
+  </frame>
+  <frame num="12">
+    <line point1="260,258" point2="337,306" />
+  </frame>
+  <frame num="13">
+    <line point1="260,262" point2="340,305" />
+  </frame>
+  <frame num="14">
+    <line point1="262,266" point2="343,305" />
+  </frame>
+  <frame num="15">
+    <line point1="262,269" point2="340,300" />
+  </frame>
+  <frame num="16">
+    <line point1="260,275" point2="338,298" />
+  </frame>
+  <frame num="17">
+    <line point1="263,277" point2="340,300" />
+  </frame>
+  <frame num="18">
+    <line point1="260,282" point2="339,301" />
+  </frame>
+  <frame num="19">
+    <line point1="259,284" point2="340,300" />
+  </frame>
+  <frame num="20">
+    <line point1="259,283" point2="338,302" />
+  </frame>
+  <frame num="21">
+    <line point1="260,280" point2="338,301" />
+  </frame>
+  <frame num="22">
+    <line point1="258,283" point2="334,304" />
+  </frame>
+  <frame num="23">
+    <line point1="257,283" point2="337,303" />
+  </frame>
+  <frame num="24">
+    <line point1="256,282" point2="335,303" />
+  </frame>
+  <frame num="25">
+    <line point1="258,280" point2="336,303" />
+  </frame>
+  <frame num="26">
+    <line point1="257,280" point2="336,304" />
+  </frame>
+  <frame num="27">
+    <line point1="256,281" point2="335,303" />
+  </frame>
+  <frame num="28">
+    <line point1="255,282" point2="334,304" />
+  </frame>
+</movie>

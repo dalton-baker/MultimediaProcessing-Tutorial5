@@ -99,11 +99,8 @@ namespace Rotoscope
                 writeThenCreateSecondItem.Enabled = false;
                 writeThenCreateRemainingItem.Enabled = false;
 
-                createFrameItem_toolStrip.Enabled = false;
-                writeFrameItem_toolStrip.Enabled = false;
-                writeThenCreateFrameItem_toolStrip.Enabled = false;
-                writeThenCreateSecondItem_toolStrip.Enabled = false;
-                writeThenCreateRemainingItem_toolStrip.Enabled = false;
+                toolStrip1.Enabled = false;
+                toolStrip2.Enabled = false;
 
             }
             else
@@ -127,10 +124,9 @@ namespace Rotoscope
                 writeFrameItem.Enabled = true;
                 writeThenCreateFrameItem.Enabled = true;
 
-                createFrameItem_toolStrip.Enabled = true;
-                writeFrameItem_toolStrip.Enabled = true;
-                writeThenCreateFrameItem_toolStrip.Enabled = true;
-               
+                toolStrip1.Enabled = true;
+                toolStrip2.Enabled = true;
+
 
                 if (maker.Audio != null)
                 {
@@ -171,6 +167,9 @@ namespace Rotoscope
             Rectangle r = ClientRectangle;
             r.Y = menuStrip1.Height + toolStrip1.Height;
             maker.DrawArea = r;
+
+            maker.LineColor = lineColorSelector.BackColor = Color.Blue;
+            maker.DotColor = dotColorSelector.BackColor = Color.Red;
         }
 
         #region Menu Handlers
@@ -188,7 +187,7 @@ namespace Rotoscope
         {
             if (openDlgRoto.ShowDialog() == DialogResult.OK)
             {
-                //TODO
+                maker.OnOpenRotoscope(openDlgRoto.FileName);
             }
             UpdateMenuBar();
         }
@@ -197,7 +196,7 @@ namespace Rotoscope
         {
             if (saveDlgRoto.ShowDialog() == DialogResult.OK)
             {
-                //TODO
+                maker.OnSaveRotoscope(saveDlgRoto.FileName);
                 lastSave = saveDlgRoto.FileName;
             }
             saveDlgRoto.Dispose();
@@ -423,33 +422,49 @@ namespace Rotoscope
         #region Mouse handlers
         private bool mouseDown = false;
 
-        /// <summary>
-        /// Handles all mouse down and move events
-        /// </summary>
-        /// <param name="x">X pixel </param>
-        /// <param name="y">Y pixel</param>
-        public void Mouse(int x, int y)
-        {
-            if (maker != null)
-                maker.Mouse(x, y - menuStrip1.Height - toolStrip1.Height); 
-            Invalidate();
-        }
-
         protected override void OnMouseDown(MouseEventArgs e)
         {
-            Mouse(e.X, e.Y);
+            Point mouseLoc = new Point(e.X, e.Y - menuStrip1.Height - toolStrip1.Height);
             mouseDown = true;
+
+            if (maker != null)
+            {
+                if (dotSelector.Checked)
+                {
+                    maker.Mouse(mouseLoc);
+                }
+                else if (lineSelector.Checked)
+                {
+                    maker.MouseDown(mouseLoc);
+                }
+            }
+
+            Invalidate();
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
         {
+            Point mouseLoc = new Point(e.X, e.Y - menuStrip1.Height - toolStrip1.Height);
             mouseDown = false;
+
+            if (maker != null && lineSelector.Checked)
+            {
+                maker.MouseUp(mouseLoc);
+            }
+
+            Invalidate();
         }
 
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            if (mouseDown)
-                Mouse(e.X, e.Y);
+            Point mouseLoc = new Point(e.X, e.Y - menuStrip1.Height - toolStrip1.Height);
+
+            if (maker != null && mouseDown && dotSelector.Checked)
+            {
+                maker.Mouse(mouseLoc);
+            }
+
+            Invalidate();
         }
 
 
@@ -483,6 +498,54 @@ namespace Rotoscope
 
             if (!success)
                 Debug.WriteLine("File could not be deleted: " + file);
+        }
+
+        private void clearFrame_Click(object sender, EventArgs e)
+        {
+            maker.OnEditClearFrame();
+            Invalidate();
+        }
+
+        private void dotSelector_Click(object sender, EventArgs e)
+        {
+            dotSelector.Checked = true;
+            lineSelector.Checked = false;
+        }
+
+        private void lineSelector_Click(object sender, EventArgs e)
+        {
+            dotSelector.Checked = false;
+            lineSelector.Checked = true;
+        }
+
+        private void dotColorSelector_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                dotColorSelector.BackColor = maker.DotColor = colorDialog1.Color;
+            }
+            maker.BuildFrame();
+        }
+
+        private void lineColorSelector_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                lineColorSelector.BackColor = maker.LineColor = colorDialog1.Color;
+            }
+            maker.BuildFrame();
+        }
+
+        private void lineThicknessSelector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            maker.LineThickness = lineThicknessSelector.SelectedIndex + 1;
+            maker.BuildFrame();
+        }
+
+        private void dotThicknessSelector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            maker.DotThickness = dotThicknessSelector.SelectedIndex + 1;
+            maker.BuildFrame();
         }
     }
 }

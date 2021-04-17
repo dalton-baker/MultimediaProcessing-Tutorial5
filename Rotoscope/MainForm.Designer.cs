@@ -55,6 +55,8 @@
             this.writeThenCreateFrameItem = new System.Windows.Forms.ToolStripMenuItem();
             this.writeThenCreateSecondItem = new System.Windows.Forms.ToolStripMenuItem();
             this.writeThenCreateRemainingItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearFrame = new System.Windows.Forms.ToolStripMenuItem();
             this.openDlgRoto = new System.Windows.Forms.OpenFileDialog();
             this.openDlgMovie = new System.Windows.Forms.OpenFileDialog();
             this.openDlgAudio = new System.Windows.Forms.OpenFileDialog();
@@ -64,14 +66,28 @@
             this.saveDlgOutMovie = new System.Windows.Forms.SaveFileDialog();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.createFrameItem_toolStrip = new System.Windows.Forms.ToolStripButton();
+            this.clearFrameButton = new System.Windows.Forms.ToolStripButton();
             this.writeFrameItem_toolStrip = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.writeThenCreateFrameItem_toolStrip = new System.Windows.Forms.ToolStripButton();
             this.writeThenCreateSecondItem_toolStrip = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.writeThenCreateRemainingItem_toolStrip = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.dotSelector = new System.Windows.Forms.ToolStripButton();
+            this.dotColorSelector = new System.Windows.Forms.ToolStripButton();
+            this.dotThicknessSelector = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.lineSelector = new System.Windows.Forms.ToolStripButton();
+            this.lineColorSelector = new System.Windows.Forms.ToolStripButton();
+            this.lineThicknessSelector = new System.Windows.Forms.ToolStripComboBox();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -79,7 +95,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.moviesToolStripMenuItem,
-            this.playbackToolStripMenuItem});
+            this.playbackToolStripMenuItem,
+            this.editToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1108, 24);
@@ -280,6 +297,21 @@
             this.writeThenCreateRemainingItem.Text = "Write then create remaining";
             this.writeThenCreateRemainingItem.Click += new System.EventHandler(this.writeThenCreateRemainingItem_Click);
             // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clearFrame});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // clearFrame
+            // 
+            this.clearFrame.Name = "clearFrame";
+            this.clearFrame.Size = new System.Drawing.Size(137, 22);
+            this.clearFrame.Text = "Clear Frame";
+            this.clearFrame.Click += new System.EventHandler(this.clearFrame_Click);
+            // 
             // openDlgRoto
             // 
             this.openDlgRoto.FileName = "openFileDialogRoto";
@@ -315,12 +347,14 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createFrameItem_toolStrip,
+            this.clearFrameButton,
             this.writeFrameItem_toolStrip,
             this.toolStripSeparator5,
             this.writeThenCreateFrameItem_toolStrip,
             this.writeThenCreateSecondItem_toolStrip,
             this.toolStripSeparator6,
-            this.writeThenCreateRemainingItem_toolStrip});
+            this.writeThenCreateRemainingItem_toolStrip,
+            this.toolStripSeparator7});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1108, 25);
@@ -337,6 +371,15 @@
             this.createFrameItem_toolStrip.Text = "Create Frame";
             this.createFrameItem_toolStrip.Click += new System.EventHandler(this.createFrameItem_Click);
             // 
+            // clearFrameButton
+            // 
+            this.clearFrameButton.Image = ((System.Drawing.Image)(resources.GetObject("clearFrameButton.Image")));
+            this.clearFrameButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.clearFrameButton.Name = "clearFrameButton";
+            this.clearFrameButton.Size = new System.Drawing.Size(90, 22);
+            this.clearFrameButton.Text = "Clear Frame";
+            this.clearFrameButton.Click += new System.EventHandler(this.clearFrame_Click);
+            // 
             // writeFrameItem_toolStrip
             // 
             this.writeFrameItem_toolStrip.Image = ((System.Drawing.Image)(resources.GetObject("writeFrameItem_toolStrip.Image")));
@@ -345,6 +388,11 @@
             this.writeFrameItem_toolStrip.Size = new System.Drawing.Size(91, 22);
             this.writeFrameItem_toolStrip.Text = "Write Frame";
             this.writeFrameItem_toolStrip.Click += new System.EventHandler(this.writeFrameItem_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
             // 
             // writeThenCreateFrameItem_toolStrip
             // 
@@ -366,11 +414,6 @@
             this.writeThenCreateSecondItem_toolStrip.ToolTipText = "Write & Create 1 Sec";
             this.writeThenCreateSecondItem_toolStrip.Click += new System.EventHandler(this.writeThenCreateSecondItem_Click);
             // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
-            // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
@@ -386,11 +429,127 @@
             this.writeThenCreateRemainingItem_toolStrip.ToolTipText = "Write & Create Remaning";
             this.writeThenCreateRemainingItem_toolStrip.Click += new System.EventHandler(this.writeThenCreateRemainingItem_Click);
             // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
+            this.toolStripSeparator9,
+            this.dotSelector,
+            this.dotColorSelector,
+            this.dotThicknessSelector,
+            this.toolStripSeparator8,
+            this.lineSelector,
+            this.lineColorSelector,
+            this.lineThicknessSelector});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 49);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(1108, 25);
+            this.toolStrip2.TabIndex = 2;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(81, 22);
+            this.toolStripLabel1.Text = "Drawing Tools";
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 25);
+            // 
+            // dotSelector
+            // 
+            this.dotSelector.Checked = true;
+            this.dotSelector.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.dotSelector.Image = ((System.Drawing.Image)(resources.GetObject("dotSelector.Image")));
+            this.dotSelector.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.dotSelector.Name = "dotSelector";
+            this.dotSelector.Size = new System.Drawing.Size(46, 22);
+            this.dotSelector.Text = "Dot";
+            this.dotSelector.Click += new System.EventHandler(this.dotSelector_Click);
+            // 
+            // dotColorSelector
+            // 
+            this.dotColorSelector.Image = ((System.Drawing.Image)(resources.GetObject("dotColorSelector.Image")));
+            this.dotColorSelector.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.dotColorSelector.Name = "dotColorSelector";
+            this.dotColorSelector.Size = new System.Drawing.Size(78, 22);
+            this.dotColorSelector.Text = "Dot Color";
+            this.dotColorSelector.ToolTipText = "Dot Color";
+            this.dotColorSelector.Click += new System.EventHandler(this.dotColorSelector_Click);
+            // 
+            // dotThicknessSelector
+            // 
+            this.dotThicknessSelector.Items.AddRange(new object[] {
+            "1px",
+            "2px",
+            "3px",
+            "4px",
+            "5px",
+            "6px",
+            "7px",
+            "8px",
+            "9px",
+            "10px"});
+            this.dotThicknessSelector.Name = "dotThicknessSelector";
+            this.dotThicknessSelector.Size = new System.Drawing.Size(121, 25);
+            this.dotThicknessSelector.Text = "Dot Thickness";
+            this.dotThicknessSelector.SelectedIndexChanged += new System.EventHandler(this.dotThicknessSelector_SelectedIndexChanged);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
+            // 
+            // lineSelector
+            // 
+            this.lineSelector.Image = ((System.Drawing.Image)(resources.GetObject("lineSelector.Image")));
+            this.lineSelector.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.lineSelector.Name = "lineSelector";
+            this.lineSelector.Size = new System.Drawing.Size(49, 22);
+            this.lineSelector.Text = "Line";
+            this.lineSelector.Click += new System.EventHandler(this.lineSelector_Click);
+            // 
+            // lineColorSelector
+            // 
+            this.lineColorSelector.Image = ((System.Drawing.Image)(resources.GetObject("lineColorSelector.Image")));
+            this.lineColorSelector.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.lineColorSelector.Name = "lineColorSelector";
+            this.lineColorSelector.Size = new System.Drawing.Size(81, 22);
+            this.lineColorSelector.Text = "Line Color";
+            this.lineColorSelector.ToolTipText = "Line Color";
+            this.lineColorSelector.Click += new System.EventHandler(this.lineColorSelector_Click);
+            // 
+            // lineThicknessSelector
+            // 
+            this.lineThicknessSelector.Items.AddRange(new object[] {
+            "1px",
+            "2px",
+            "3px",
+            "4px",
+            "5px",
+            "6px",
+            "7px",
+            "8px",
+            "9px",
+            "10px"});
+            this.lineThicknessSelector.Name = "lineThicknessSelector";
+            this.lineThicknessSelector.Size = new System.Drawing.Size(121, 25);
+            this.lineThicknessSelector.Text = "Line Thickness";
+            this.lineThicknessSelector.SelectedIndexChanged += new System.EventHandler(this.lineThicknessSelector_SelectedIndexChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1108, 654);
+            this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -401,6 +560,8 @@
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -449,6 +610,21 @@
         private System.Windows.Forms.ToolStripButton writeThenCreateSecondItem_toolStrip;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton writeThenCreateRemainingItem_toolStrip;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearFrame;
+        private System.Windows.Forms.ToolStripButton clearFrameButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripButton dotSelector;
+        private System.Windows.Forms.ToolStripButton lineSelector;
+        private System.Windows.Forms.ToolStripComboBox lineThicknessSelector;
+        private System.Windows.Forms.ToolStripButton dotColorSelector;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ToolStripButton lineColorSelector;
+        private System.Windows.Forms.ToolStripComboBox dotThicknessSelector;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
     }
 }
 

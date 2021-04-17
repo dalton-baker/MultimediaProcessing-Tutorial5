@@ -154,6 +154,15 @@
         yFqr/a4BllGDdV21h4vQR+4aUEycc3oF6qELKGzRNRihaTBOki/GflExnla91wAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="clearFrameButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADBSURBVDhPzZAxEsIgFES5gNewtrSmtvAQ3sAT2WmZ3CBn
+        SeHYkZmEFl3CMjsKaOmfeRPy2d0PmHmed957B9I6tDDv9Wq64XwK3WEf3DhOEOEf9H0frLWZagDMl+0m
+        hsDI9fS458nVABwbkxlSMrfIb8DJteklYoCaYeRJNIRi5SOABsCg1jVyAK+g07rbNYI1oZHkAD7ksixH
+        3VC+BrB0Q/mfAHwV9JJ1LRUrpR5J1rXQaAUkWb0oLvFzQIskkzLmCSYpjusqcjg9AAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="writeFrameItem_toolStrip.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -193,6 +202,47 @@
         PywdoBsE4mOkA2wAmJgCgArgKRENI6VEBgYAaUR0rx9umIsAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="toolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <data name="dotSelector.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACeSURBVDhPzZLLDQMhDEQpZUtIDdzpgrKQUh5HLnyOhLdy
+        lk3kvYRIyUgjIXtmMB/zf2itbaWUe601DXZhokZPZDpyzjfEIYTunOvW2p2sqdFDI/JXkB5jTN77w/hO
+        eoSokzAiu2jGM9GgFdsEyeexr4gGrdgmRlE1aEQrtolvBKwdYfkSeRqSP35GsPSRniCdEREP7hfGmtrl
+        zj+EMQ/ED0MLbo/TFQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="dotColorSelector.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC0SURBVDhPpY/LDcIwEAVTBDfKSAfuzUVwpAVXEdpA4kxC
+        Il+NxtJD/oWEcBjJu+s39nbe+/APUWCMaVJebvGTwFpbzTYFhEQ5ywTjc6pY5qUKAr3dAuaphLP6XwV6
+        Xa9Jskug8DDcYp1KNgVzEZaAkKBHphJM4ys452KNABSWTDQFXOQs1sKwKiBEzU9YpwyKTAAaIAHWSQMl
+        meBx6iKS9Zc+ovp8vUdUw2EBQUH9WeEYPrwB8cw7kdmcow8AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="lineSelector.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABwSURBVDhP1ZJBCsAgDAR9Qt+U/4NPSXvx2pKygZgqid66
+        MAgmO14s2bTW7hEYx5FlIurYEpx8vSwJmPnYFqBcVWAJBb4spwer30zKVe6xMs/PyljqWHpZC5Z0WaIC
+        /0FSZclMgHEcFViWBSMwDlLKA2+9YjDQPsfWAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="lineColorSelector.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC0SURBVDhPpY/LDcIwEAVTBDfKSAfuzUVwpAVXEdpA4kxC
+        Il+NxtJD/oWEcBjJu+s39nbe+/APUWCMaVJebvGTwFpbzTYFhEQ5ywTjc6pY5qUKAr3dAuaphLP6XwV6
+        Xa9Jskug8DDcYp1KNgVzEZaAkKBHphJM4ys452KNABSWTDQFXOQs1sKwKiBEzU9YpwyKTAAaIAHWSQMl
+        meBx6iKS9Zc+ovp8vUdUw2EBQUH9WeEYPrwB8cw7kdmcow8AAAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="colorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>122, 56</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAIAICAAAAAAGACoDAAAJgAAABAQAAAAABgAaAMAAM4MAAAoAAAAIAAAAEAAAAABABgAAAAAAAAM

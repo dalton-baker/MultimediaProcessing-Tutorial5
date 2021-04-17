@@ -53,8 +53,8 @@ namespace Rotoscope
         public Color this[int x, int y]
         {
 
-            get => this.image.GetPixel(x, y);
-            set => this.image.SetPixel(x, y, value);
+            get => image.GetPixel(x, y);
+            set => image.SetPixel(x, y, value);
         }
 
         /// <summary>
@@ -79,11 +79,13 @@ namespace Rotoscope
         /// <summary>
         /// Draws a hollow red dot at the given pixel
         /// </summary>
-        /// <param name="x">x position in pixels</param>
-        /// <param name="y">y position in pixels</param>
-        public void DrawDot(int x, int y)
+        /// <param name="p">the point where the dot will be drawn</param>
+        /// <param name="c">The color of the dot</param>
+        /// <param name="thickness">The thickness of the dot</param>
+        public void DrawDot(Point p, Color c, int thickness = 2)
         {
-            g.DrawRectangle(new Pen(Color.Red), x, y, 2, 2);
+            g.DrawEllipse(new Pen(c), p.X, p.Y, thickness, thickness);
+            g.FillEllipse(new SolidBrush(c), p.X, p.Y, thickness, thickness);
         }
 
         /// <summary>
@@ -101,14 +103,13 @@ namespace Rotoscope
         /// <summary>
         /// Draws a line between the points given with the given color
         /// </summary>
-        /// <param name="x1">point 1's x in pixels</param>
-        /// <param name="y1">point 1's y in pixels</param>
-        /// <param name="x2">point 2's x in pixels</param>
-        /// <param name="y2">point 2's y in pixels</param>
-        /// <param name="c">the color </param>
-        public void DrawLine(int x1, int y1, int x2, int y2, Color c)
+        /// <param name="p1">point 1</param>
+        /// <param name="p2">point 2</param>
+        /// <param name="c">the color</param>
+        /// <param name="thickness">the thickness</param>
+        public void DrawLine(Point p1, Point p2, Color c, int thickness = 1)
         {
-            g.DrawLine(new Pen(c), x1, y1, x2, y2);
+            g.DrawLine(new Pen(c, thickness), p1, p2);
         }
 
         /// <summary>

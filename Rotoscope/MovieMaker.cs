@@ -29,11 +29,29 @@ namespace Rotoscope
         private string tempAudioSavePath = "tempAudioOutput.wav";
         private string tempVideoSavePath = "tempVideoOutput.mp4";
         private Rotoscope roto = new Rotoscope();
+        private Frame initial = new Frame();
+        private Point startingPoint = new Point(0, 0);
 
         #endregion
 
 
         #region Properties
+        /// <summary>
+        /// The color of Lines you are drawing to the screen
+        /// </summary>
+        public Color LineColor { get; set; }
+        /// <summary>
+        /// The color of Dots you are drawing to the screen
+        /// </summary>
+        public Color DotColor { get; set; }
+        /// <summary>
+        /// The tickness in pixels of a line
+        /// </summary>
+        public int LineThickness { get; set; } = 1;
+        /// <summary>
+        /// The tickness in pixels of a dot
+        /// </summary>
+        public int DotThickness { get; set; } = 2;
 
         /// <summary>
         /// The background audio for the output movie.
@@ -149,14 +167,25 @@ namespace Rotoscope
         /// </summary>
         /// <param name="x">X pixel</param>
         /// <param name="y">Y pixel</param>
-        public void Mouse(int x, int y)
+        public void Mouse(Point p)
         {
-            CurFrame.DrawDot(x, y);
-
-            roto.AddToDrawList(framenum, new Point(x, y));
+            roto.AddToDrawList(framenum, p);
+            BuildFrame();
         }
 
- 
+        public void MouseDown(Point p)
+        {
+            startingPoint = p;
+        }
+
+        public void MouseUp(Point p)
+        {
+            roto.AddToDrawList(framenum, (startingPoint, p));
+            startingPoint = new Point(0, 0);
+            BuildFrame();
+        }
+
+
         /// <summary>
         /// Draw the current state of the makers
         /// </summary>
@@ -207,6 +236,11 @@ namespace Rotoscope
                         Graphics g = Graphics.FromImage(curFrame.Image);
                         g.DrawImage(newImage, 0, 0); //this is MUCH faster than looping through
                         newImage.Dispose(); // release the image
+
+                        // Save a copy of the original, unmodified image                    
+                        initial = new Frame(curFrame.Image);
+
+                        BuildFrame();
                     }
                     catch (Exception)
                     {
@@ -569,6 +603,64 @@ namespace Rotoscope
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// OnOpenRotoscope
+        /// </summary>
+        public void OnOpenRotoscope(string filename)
+        {
+
+            //
+            // Open an XML document
+            //
+            XmlDocument reader = new XmlDocument();
+            reader.Load(filename);
+
+            //
+            // Traverse the XML document in memory!!!!
+            //
+
+            foreach (XmlNode node in reader.ChildNodes)
+            {
+                if (node.Name == "movie")
+                {
+                    roto.OnOpenRotoscope(node);
+                }
+            }
+        }
+
+        /// <summary>
+        /// OnEditClearFrame
+        /// </summary>
+        public void OnEditClearFrame()
+        {
+            roto.ClearFrame(framenum);
+            BuildFrame();
+        }
+
+        /// <summary>
+        /// BuildFrame
+        /// </summary>
+        public void BuildFrame()
+        {
+            curFrame = new Frame(initial.Image);
+
+            // Write any saved drawings into the frame
+            (List<Point> dots, List<(Point, Point)> lines) = roto.GetFromDrawList(framenum);
+            if (dots != null)
+            {
+                foreach (Point p in dots)
+                {
+                    curFrame.DrawDot(p, DotColor, DotThickness);
+                }
+                foreach ((Point p1, Point p2) in lines)
+                {
+                    curFrame.DrawLine(p1, p2, LineColor, LineThickness);
+                }
+            }
+
+            form.Invalidate();
         }
     }
 }

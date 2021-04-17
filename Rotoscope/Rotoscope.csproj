@@ -106,6 +106,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="res\bird.png" />
+    <Content Include="res\birdp.png" />
     <EmbeddedResource Include="res\colbert2.wmv" />
     <EmbeddedResource Include="res\colbert_1sec.wmv" />
     <EmbeddedResource Include="res\colbert_5sec.wmv" />

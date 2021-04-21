@@ -57,6 +57,10 @@ namespace Rotoscope
         /// This will replace a dot with a bird
         /// </summary>
         public bool BirdUp { get; set; } = false;
+        /// <summary>
+        /// This will apply the strange rotation thing
+        /// </summary>
+        public bool RotateThing { get; set; } = false;
 
         /// <summary>
         /// The background audio for the output movie.
@@ -237,7 +241,6 @@ namespace Rotoscope
 
             if (sourceMovie != null)
             {
-
                 Bitmap newImage = sourceMovie.LoadNextFrameImage();
 
                 //sanity chack that an image is there
@@ -245,6 +248,7 @@ namespace Rotoscope
                 {
                     try
                     {
+
                         Graphics g = Graphics.FromImage(curFrame.Image);
                         g.DrawImage(newImage, 0, 0); //this is MUCH faster than looping through
                         newImage.Dispose(); // release the image
@@ -253,6 +257,12 @@ namespace Rotoscope
                         initial = new Frame(curFrame.Image);
 
                         BuildFrame();
+
+                        if (RotateThing)
+                        {
+                            curFrame.Rotate(_rotateAngle, rotatePoint);
+                            _rotateAngle += 12f; //This is the angle per fram @ 30fps
+                        }
                     }
                     catch (Exception)
                     {
@@ -659,7 +669,7 @@ namespace Rotoscope
             curFrame = new Frame(initial.Image);
 
             // Write any saved drawings into the frame
-            foreach(DrawableItem drawableItem in roto.GetFromDrawList(framenum))
+            foreach (DrawableItem drawableItem in roto.GetFromDrawList(framenum))
             {
                 if (drawableItem is DrawableBird drawableBird)
                 {
@@ -672,10 +682,14 @@ namespace Rotoscope
                 else if (drawableItem is DrawableLine drawableLine)
                 {
                     curFrame.DrawLine(drawableLine.Point1, drawableLine.Point2, LineColor, LineThickness);
+                    rotatePoint = new Point((drawableLine.Point1.X + drawableLine.Point2.X) / 2, (drawableLine.Point1.Y + drawableLine.Point2.Y) / 2);
                 }
             }
 
             form.Invalidate();
         }
+
+        private float _rotateAngle = 0;
+        Point rotatePoint = new Point(0, 0);
     }
 }

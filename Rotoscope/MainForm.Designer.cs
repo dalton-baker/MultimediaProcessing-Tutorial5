@@ -84,9 +84,11 @@
             this.lineSelector = new System.Windows.Forms.ToolStripButton();
             this.lineColorSelector = new System.Windows.Forms.ToolStripButton();
             this.lineThicknessSelector = new System.Windows.Forms.ToolStripComboBox();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.birdSelector = new System.Windows.Forms.ToolStripButton();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.rotateSelector = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -449,7 +451,9 @@
             this.lineColorSelector,
             this.lineThicknessSelector,
             this.toolStripSeparator10,
-            this.birdSelector});
+            this.birdSelector,
+            this.toolStripSeparator11,
+            this.rotateSelector});
             this.toolStrip2.Location = new System.Drawing.Point(0, 49);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(1108, 25);
@@ -581,6 +585,20 @@
             this.birdSelector.ToolTipText = "Bird Up";
             this.birdSelector.Click += new System.EventHandler(this.birdSelector_Click);
             // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 25);
+            // 
+            // rotateSelector
+            // 
+            this.rotateSelector.Image = ((System.Drawing.Image)(resources.GetObject("rotateSelector.Image")));
+            this.rotateSelector.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.rotateSelector.Name = "rotateSelector";
+            this.rotateSelector.Size = new System.Drawing.Size(132, 22);
+            this.rotateSelector.Text = "Do the Rotate Thing";
+            this.rotateSelector.Click += new System.EventHandler(this.rotateSelector_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -664,6 +682,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripButton birdSelector;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
+        private System.Windows.Forms.ToolStripButton rotateSelector;
     }
 }
 

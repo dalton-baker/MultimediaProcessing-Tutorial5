@@ -1,6 +1,7 @@
 ﻿using Rotoscope.DrawableItems;
 using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
 
@@ -116,6 +117,16 @@ namespace Rotoscope
             g.DrawImage(image, newPoint);
         }
 
+        public void Rotate(float angle, Point rotatePoint)
+        {
+            Bitmap tempImage = new Bitmap(Image);
+            g.TranslateTransform(rotatePoint.X, rotatePoint.Y);
+            g.RotateTransform(angle);
+            g.TranslateTransform(-rotatePoint.X, -rotatePoint.Y);
+            g.Clear(Color.Black);
+            g.DrawImage(tempImage, new Point(0, 0));
+        }
+
         /// <summary>
         /// Draws the frame's iamge with a background color in teh given area
         /// </summary>
@@ -125,7 +136,6 @@ namespace Rotoscope
         {
             g.FillRectangle(background, drawArea);
             g.DrawImage(image, new Point(drawArea.X, drawArea.Y));
-
         }
 
         /// <summary>

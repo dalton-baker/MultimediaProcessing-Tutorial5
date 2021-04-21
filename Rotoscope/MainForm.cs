@@ -29,7 +29,6 @@ using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 
-
 namespace Rotoscope
 {
     /// <summary>
@@ -585,6 +584,18 @@ namespace Rotoscope
         {
             maker.DotThickness = dotThicknessSelector.SelectedIndex + 1;
             maker.BuildFrame();
+        }
+
+        private void rotateSelector_Click(object sender, EventArgs e)
+        {
+            if(rotateSelector.Checked)
+            {
+                rotateSelector.Checked = maker.RotateThing = false;
+            }
+            else
+            {
+                rotateSelector.Checked = maker.RotateThing = true;
+            }
         }
     }
 }

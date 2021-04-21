@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<movie>
+  <frame num="1">
+    <dot point="353,97" />
+  </frame>
+  <frame num="2">
+    <dot point="357,97" />
+  </frame>
+  <frame num="3">
+    <dot point="359,94" />
+  </frame>
+  <frame num="4">
+    <dot point="363,92" />
+  </frame>
+  <frame num="5">
+    <dot point="366,93" />
+  </frame>
+  <frame num="6">
+    <dot point="369,92" />
+  </frame>
+  <frame num="7">
+    <dot point="373,92" />
+  </frame>
+  <frame num="8">
+    <dot point="377,91" />
+  </frame>
+  <frame num="9">
+    <dot point="379,95" />
+  </frame>
+  <frame num="10">
+    <dot point="380,93" />
+  </frame>
+  <frame num="11">
+    <dot point="386,94" />
+  </frame>
+  <frame num="12">
+    <dot point="387,98" />
+  </frame>
+  <frame num="13">
+    <dot point="388,98" />
+  </frame>
+  <frame num="14">
+    <dot point="390,98" />
+  </frame>
+  <frame num="15">
+    <dot point="389,102" />
+  </frame>
+  <frame num="16">
+    <dot point="390,104" />
+  </frame>
+  <frame num="17">
+    <dot point="388,106" />
+  </frame>
+  <frame num="18">
+    <dot point="387,109" />
+  </frame>
+  <frame num="19">
+    <dot point="386,108" />
+  </frame>
+  <frame num="20">
+    <dot point="386,109" />
+  </frame>
+  <frame num="21">
+    <dot point="384,111" />
+  </frame>
+  <frame num="22">
+    <dot point="383,108" />
+  </frame>
+  <frame num="23">
+    <dot point="384,108" />
+  </frame>
+  <frame num="24">
+    <dot point="382,108" />
+  </frame>
+  <frame num="25">
+    <dot point="384,107" />
+  </frame>
+  <frame num="26">
+    <dot point="383,106" />
+  </frame>
+  <frame num="27">
+    <dot point="384,108" />
+  </frame>
+  <frame num="28">
+    <dot point="384,107" />
+  </frame>
+</movie>

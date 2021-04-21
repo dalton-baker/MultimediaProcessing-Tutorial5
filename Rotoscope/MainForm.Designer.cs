@@ -85,6 +85,8 @@
             this.lineColorSelector = new System.Windows.Forms.ToolStripButton();
             this.lineThicknessSelector = new System.Windows.Forms.ToolStripComboBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.birdSelector = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -445,7 +447,9 @@
             this.toolStripSeparator8,
             this.lineSelector,
             this.lineColorSelector,
-            this.lineThicknessSelector});
+            this.lineThicknessSelector,
+            this.toolStripSeparator10,
+            this.birdSelector});
             this.toolStrip2.Location = new System.Drawing.Point(0, 49);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(1108, 25);
@@ -496,7 +500,16 @@
             "7px",
             "8px",
             "9px",
-            "10px"});
+            "10px",
+            "11px",
+            "12px",
+            "13px",
+            "14px",
+            "15px",
+            "16px",
+            "17px",
+            "18px",
+            "20px"});
             this.dotThicknessSelector.Name = "dotThicknessSelector";
             this.dotThicknessSelector.Size = new System.Drawing.Size(121, 25);
             this.dotThicknessSelector.Text = "Dot Thickness";
@@ -538,11 +551,35 @@
             "7px",
             "8px",
             "9px",
-            "10px"});
+            "10px",
+            "11px",
+            "12px",
+            "13px",
+            "14px",
+            "15px",
+            "16px",
+            "17px",
+            "18px",
+            "20px"});
             this.lineThicknessSelector.Name = "lineThicknessSelector";
             this.lineThicknessSelector.Size = new System.Drawing.Size(121, 25);
             this.lineThicknessSelector.Text = "Line Thickness";
             this.lineThicknessSelector.SelectedIndexChanged += new System.EventHandler(this.lineThicknessSelector_SelectedIndexChanged);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 25);
+            // 
+            // birdSelector
+            // 
+            this.birdSelector.Image = ((System.Drawing.Image)(resources.GetObject("birdSelector.Image")));
+            this.birdSelector.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.birdSelector.Name = "birdSelector";
+            this.birdSelector.Size = new System.Drawing.Size(66, 22);
+            this.birdSelector.Text = "Bird Up";
+            this.birdSelector.ToolTipText = "Bird Up";
+            this.birdSelector.Click += new System.EventHandler(this.birdSelector_Click);
             // 
             // MainForm
             // 
@@ -625,6 +662,8 @@
         private System.Windows.Forms.ToolStripComboBox dotThicknessSelector;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private System.Windows.Forms.ToolStripButton birdSelector;
     }
 }
 

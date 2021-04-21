@@ -52,6 +52,10 @@ namespace Rotoscope
         /// The tickness in pixels of a dot
         /// </summary>
         public int DotThickness { get; set; } = 2;
+        /// <summary>
+        /// This will replace a dot with a bird
+        /// </summary>
+        public bool BirdUp { get; set; } = false;
 
         /// <summary>
         /// The background audio for the output movie.
@@ -652,7 +656,14 @@ namespace Rotoscope
             {
                 foreach (Point p in dots)
                 {
-                    curFrame.DrawDot(p, DotColor, DotThickness);
+                    if(BirdUp)
+                    {
+                        curFrame.DrawBird(p);
+                    }
+                    else
+                    {
+                        curFrame.DrawDot(p, DotColor, DotThickness);
+                    }
                 }
                 foreach ((Point p1, Point p2) in lines)
                 {

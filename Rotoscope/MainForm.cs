@@ -1,4 +1,28 @@
-﻿using System;
+﻿/******************************************************************************
+ * Mark off what items are complete (e.g. x, done, checkmark, etc), and put a 
+ * P if partially complete. If 'P' include how to test what is working for 
+ * partial credit below the checklist line.
+ * 
+ * Total available points:  100
+ * 
+ * 🗸______	25	Tutorial completed (honor system on this one)
+ * 🗸______  10	Video: colbert1a draws any line
+ * 🗸______	10	Video: colbert1a line is white
+ * 🗸______	5	Video: colbert1b line is red
+ * 🗸______	10	Video: colbert1b line is 2 pixels wide
+ * 🗸______	15	Video: colbert2 Put a Bird On It
+ * ______	20	Video: colbert3 rotation
+ * 🗸______	5	Video: colbert3 line is green
+ * ______	Total (please add the points and include the total here)
+ * 
+ * 
+ * The grade you compute is the starting point for course staff, who reserve 
+ * the right to change the grade if they disagree with your assessment and to 
+ * deduct points for other issues they may encounter, such as errors in the 
+ * submission process, naming issues, etc.
+ *****************************************************************************/
+
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -165,7 +189,7 @@ namespace Rotoscope
                 maker = new MovieMaker(this);
 
             Rectangle r = ClientRectangle;
-            r.Y = menuStrip1.Height + toolStrip1.Height;
+            r.Y = menuStrip1.Height + toolStrip1.Height + toolStrip2.Height;
             maker.DrawArea = r;
 
             maker.LineColor = lineColorSelector.BackColor = Color.Blue;
@@ -424,12 +448,12 @@ namespace Rotoscope
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
-            Point mouseLoc = new Point(e.X, e.Y - menuStrip1.Height - toolStrip1.Height);
+            Point mouseLoc = new Point(e.X, e.Y - menuStrip1.Height - toolStrip1.Height - toolStrip2.Height);
             mouseDown = true;
 
             if (maker != null)
             {
-                if (dotSelector.Checked)
+                if (dotSelector.Checked || birdSelector.Checked)
                 {
                     maker.Mouse(mouseLoc);
                 }
@@ -444,7 +468,7 @@ namespace Rotoscope
 
         protected override void OnMouseUp(MouseEventArgs e)
         {
-            Point mouseLoc = new Point(e.X, e.Y - menuStrip1.Height - toolStrip1.Height);
+            Point mouseLoc = new Point(e.X, e.Y - menuStrip1.Height - toolStrip1.Height - toolStrip2.Height);
             mouseDown = false;
 
             if (maker != null && lineSelector.Checked)
@@ -457,7 +481,7 @@ namespace Rotoscope
 
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            Point mouseLoc = new Point(e.X, e.Y - menuStrip1.Height - toolStrip1.Height);
+            Point mouseLoc = new Point(e.X, e.Y - menuStrip1.Height - toolStrip1.Height - toolStrip2.Height);
 
             if (maker != null && mouseDown && dotSelector.Checked)
             {
@@ -510,12 +534,27 @@ namespace Rotoscope
         {
             dotSelector.Checked = true;
             lineSelector.Checked = false;
+            birdSelector.Checked = false;
+            maker.BirdUp = false;
+            maker.BuildFrame();
         }
 
         private void lineSelector_Click(object sender, EventArgs e)
         {
-            dotSelector.Checked = false;
             lineSelector.Checked = true;
+            dotSelector.Checked = false;
+            birdSelector.Checked = false;
+            maker.BirdUp = false;
+            maker.BuildFrame();
+        }
+        private void birdSelector_Click(object sender, EventArgs e)
+        {
+            birdSelector.Checked = true;
+            dotSelector.Checked = false;
+            lineSelector.Checked = false;
+
+            maker.BirdUp = true;
+            maker.BuildFrame();
         }
 
         private void dotColorSelector_Click(object sender, EventArgs e)

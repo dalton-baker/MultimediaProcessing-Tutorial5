@@ -77,27 +77,18 @@ namespace Rotoscope
         #region Drawing
 
         /// <summary>
-        /// Draws a hollow red dot at the given pixel
+        /// Draws a solid dot at the given pixel
         /// </summary>
         /// <param name="p">the point where the dot will be drawn</param>
         /// <param name="c">The color of the dot</param>
         /// <param name="thickness">The thickness of the dot</param>
         public void DrawDot(Point p, Color c, int thickness = 2)
         {
-            g.DrawEllipse(new Pen(c), p.X, p.Y, thickness, thickness);
-            g.FillEllipse(new SolidBrush(c), p.X, p.Y, thickness, thickness);
-        }
+            Point actualPoint = new Point(p.X - thickness/2, p.Y - thickness / 2);
+            Rectangle rectangle = new Rectangle(actualPoint, new Size(thickness, thickness));
 
-        /// <summary>
-        /// Draws the frame's iamge with a background color in teh given area
-        /// </summary>
-        /// <param name="g">graphics reference to the view</param>
-        /// <param name="drawArea">the area to draw the frame inside of</param>
-        public void OnDraw(Graphics g, Rectangle drawArea)
-        {
-            g.FillRectangle(background, drawArea);
-            g.DrawImage(image, new Point(drawArea.X, drawArea.Y));
-
+            g.DrawEllipse(new Pen(c), rectangle);
+            g.FillEllipse(new SolidBrush(c), rectangle);
         }
 
         /// <summary>
@@ -110,6 +101,30 @@ namespace Rotoscope
         public void DrawLine(Point p1, Point p2, Color c, int thickness = 1)
         {
             g.DrawLine(new Pen(c, thickness), p1, p2);
+        }
+
+        /// <summary>
+        /// Draws a hollow red dot at the given pixel
+        /// </summary>
+        /// <param name="p">the point where the dot will be drawn</param>
+        public void DrawBird(Point p)
+        {
+            var image = new Bitmap(Properties.Resources.bird);
+            var newPoint = new Point(p.X - image.Width/2, p.Y - image.Height);
+
+            g.DrawImage(image, newPoint);
+        }
+
+        /// <summary>
+        /// Draws the frame's iamge with a background color in teh given area
+        /// </summary>
+        /// <param name="g">graphics reference to the view</param>
+        /// <param name="drawArea">the area to draw the frame inside of</param>
+        public void OnDraw(Graphics g, Rectangle drawArea)
+        {
+            g.FillRectangle(background, drawArea);
+            g.DrawImage(image, new Point(drawArea.X, drawArea.Y));
+
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rotoscope.DrawableItems;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -173,7 +174,14 @@ namespace Rotoscope
         /// <param name="y">Y pixel</param>
         public void Mouse(Point p)
         {
-            roto.AddToDrawList(framenum, p);
+            if (BirdUp)
+            {
+                roto.AddToDrawList(framenum, new DrawableBird(p));
+            }
+            else
+            {
+                roto.AddToDrawList(framenum, new DrawableDot(p));
+            }
             BuildFrame();
         }
 
@@ -184,7 +192,7 @@ namespace Rotoscope
 
         public void MouseUp(Point p)
         {
-            roto.AddToDrawList(framenum, (startingPoint, p));
+            roto.AddToDrawList(framenum, new DrawableLine(startingPoint, p));
             startingPoint = new Point(0, 0);
             BuildFrame();
         }
@@ -651,23 +659,19 @@ namespace Rotoscope
             curFrame = new Frame(initial.Image);
 
             // Write any saved drawings into the frame
-            (List<Point> dots, List<(Point, Point)> lines) = roto.GetFromDrawList(framenum);
-            if (dots != null)
+            foreach(DrawableItem drawableItem in roto.GetFromDrawList(framenum))
             {
-                foreach (Point p in dots)
+                if (drawableItem is DrawableBird drawableBird)
                 {
-                    if(BirdUp)
-                    {
-                        curFrame.DrawBird(p);
-                    }
-                    else
-                    {
-                        curFrame.DrawDot(p, DotColor, DotThickness);
-                    }
+                    curFrame.DrawBird(drawableBird.Point);
                 }
-                foreach ((Point p1, Point p2) in lines)
+                else if(drawableItem is DrawableDot drawableDot)
                 {
-                    curFrame.DrawLine(p1, p2, LineColor, LineThickness);
+                    curFrame.DrawDot(drawableDot.Point, DotColor, DotThickness);
+                }
+                else if (drawableItem is DrawableLine drawableLine)
+                {
+                    curFrame.DrawLine(drawableLine.Point1, drawableLine.Point2, LineColor, LineThickness);
                 }
             }
 

@@ -56,6 +56,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DrawableItems\DrawableDot.cs" />
+    <Compile Include="DrawableItems\DrawableItem.cs" />
+    <Compile Include="DrawableItems\DrawableLine.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

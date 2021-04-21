@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rotoscope.DrawableItems;
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
@@ -74,8 +75,8 @@ namespace Rotoscope
             Fill(0, 0, 0, 255);
             g = Graphics.FromImage(image);
         }
-        #region Drawing
 
+        #region Drawing
         /// <summary>
         /// Draws a solid dot at the given pixel
         /// </summary>
